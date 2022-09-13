@@ -26,8 +26,7 @@ public class DepartmentFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_department, container, false);
-        return view;
+        return inflater.inflate(R.layout.fragment_department, container, false);
     }
 
     @Override
@@ -36,33 +35,25 @@ public class DepartmentFragment extends Fragment {
 
         deptButtons = view.findViewById(R.id.deptButtons);
 
-        view.findViewById(R.id.deptSelectButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int chooseDept = deptButtons.getCheckedRadioButtonId();
-                String dept;
-                if (chooseDept == R.id.compSciButton) {
-                    dept = "Computer Science";
-                    dlistener.departmentSelected(dept);
-                } else if (chooseDept == R.id.sisButtons) {
-                    dept = "Software Info. System";
-                    dlistener.departmentSelected(dept);
-                } else if (chooseDept == R.id.bioInfoButton) {
-                    dept = "Bio Informatics";
-                    dlistener.departmentSelected(dept);
-                } else if (chooseDept == R.id.dataScienceButton) {
-                    dept = "Data Science";
-                    dlistener.departmentSelected(dept);
-                }
+        view.findViewById(R.id.deptSelectButton).setOnClickListener(v -> {
+            int chooseDept = deptButtons.getCheckedRadioButtonId();
+            String dept;
+            if (chooseDept == R.id.compSciButton) {
+                dept = "Computer Science";
+                dlistener.departmentSelected(dept);
+            } else if (chooseDept == R.id.sisButtons) {
+                dept = "Software Info. System";
+                dlistener.departmentSelected(dept);
+            } else if (chooseDept == R.id.bioInfoButton) {
+                dept = "Bio Informatics";
+                dlistener.departmentSelected(dept);
+            } else if (chooseDept == R.id.dataScienceButton) {
+                dept = "Data Science";
+                dlistener.departmentSelected(dept);
             }
         });
 
-        view.findViewById(R.id.cancelButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dlistener.deptCancelButtonClicked();
-            }
-        });
+        view.findViewById(R.id.cancelButton).setOnClickListener(v -> dlistener.deptCancelButtonClicked());
     }
 
     @Override
@@ -71,7 +62,7 @@ public class DepartmentFragment extends Fragment {
         if (context instanceof iListener){
             dlistener = (iListener)context;
         } else {
-            throw new RuntimeException(context.toString() + " must implement iListener");
+            throw new RuntimeException(context + " must implement iListener");
         }
     }
 

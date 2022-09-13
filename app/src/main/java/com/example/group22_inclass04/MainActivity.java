@@ -7,12 +7,7 @@ package com.example.group22_inclass04;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 
-import com.example.group22_inclass04.DepartmentFragment;
-import com.example.group22_inclass04.ProfileFragment;
-import com.example.group22_inclass04.RegisterFragment;
-import com.example.group22_inclass04.WelcomeFragment;
 
 public class MainActivity extends AppCompatActivity implements WelcomeFragment.iListener, RegisterFragment.iListener, DepartmentFragment.iListener, ProfileFragment.iListener{
     User user;

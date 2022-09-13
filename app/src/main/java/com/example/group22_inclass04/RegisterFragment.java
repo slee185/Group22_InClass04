@@ -31,8 +31,7 @@ public class RegisterFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_register, container, false);
-        return view;
+        return inflater.inflate(R.layout.fragment_register, container, false);
     }
 
     @Override
@@ -44,25 +43,17 @@ public class RegisterFragment extends Fragment {
         enterID = view.findViewById(R.id.enterID);
         textViewSelectedDept = view.findViewById(R.id.textViewSelectedDept);
 
-        view.findViewById(R.id.selectButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                rListener.regSelectButtonClicked();
-            }
-        });
+        view.findViewById(R.id.selectButton).setOnClickListener(v -> rListener.regSelectButtonClicked());
 
-        view.findViewById(R.id.submitButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                rListener.regSelectButtonClicked();
-                if (enterName == null || enterEmail == null || enterID == null) {
-                    Toast.makeText(getActivity(), "Enter a name, email and ID!", Toast.LENGTH_SHORT).show();
-                } else {
-                    User user = new User (enterName.getText().toString(), enterEmail.getText().toString(), enterID.getText().toString(), rListener.getDept());
-                    rListener.setUser(user);
-                }
-                rListener.regSubmitButtonClicked();
+        view.findViewById(R.id.submitButton).setOnClickListener(v -> {
+            rListener.regSelectButtonClicked();
+            if (enterName == null || enterEmail == null || enterID == null) {
+                Toast.makeText(getActivity(), "Enter a name, email and ID!", Toast.LENGTH_SHORT).show();
+            } else {
+                User user = new User (enterName.getText().toString(), enterEmail.getText().toString(), enterID.getText().toString(), rListener.getDept());
+                rListener.setUser(user);
             }
+            rListener.regSubmitButtonClicked();
         });
     }
 
@@ -73,7 +64,7 @@ public class RegisterFragment extends Fragment {
         if (context instanceof iListener){
             rListener = (iListener)context;
         } else {
-            throw new RuntimeException(context.toString() + " must implement iListener");
+            throw new RuntimeException(context + " must implement iListener");
         }
     }
 

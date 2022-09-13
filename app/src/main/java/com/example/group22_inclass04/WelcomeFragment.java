@@ -22,20 +22,14 @@ public class WelcomeFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_welcome, container, false);
-        return view;
+        return inflater.inflate(R.layout.fragment_welcome, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.registerButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mListener.setButtonClicked();
-            }
-        });
+        view.findViewById(R.id.registerButton).setOnClickListener(v -> mListener.setButtonClicked());
     }
 
     @Override
@@ -45,7 +39,7 @@ public class WelcomeFragment extends Fragment {
         if (context instanceof iListener){
             mListener = (iListener)context;
         } else {
-            throw new RuntimeException(context.toString() + " must implement iListener");
+            throw new RuntimeException(context + " must implement iListener");
         }
     }
 
