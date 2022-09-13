@@ -19,7 +19,8 @@ public class RegisterFragment extends Fragment {
     EditText enterEmail;
     EditText enterID;
     TextView textViewSelectedDept;
-    final static public String USER_KEY = "User";
+
+    final String TAG = "Registration";
 
     public RegisterFragment() {
     }

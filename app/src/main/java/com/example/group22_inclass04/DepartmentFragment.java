@@ -62,7 +62,7 @@ public class DepartmentFragment extends Fragment {
         if (context instanceof iListener){
             dlistener = (iListener)context;
         } else {
-            throw new RuntimeException(context + " must implement iListener");
+            throw new RuntimeException(context + getString(R.string.toast_implement_ilistener));
         }
     }
 

@@ -11,12 +11,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import org.w3c.dom.Text;
+
 public class ProfileFragment extends Fragment {
 
     TextView printName;
     TextView printEmail;
     TextView printID;
     TextView printDept;
+
+    final String TAG = "Profile";
+
 
     public ProfileFragment() {
     }
@@ -30,18 +35,19 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_profile, container, false);
+
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+    }
 
-        //com.example.groupa2_inclass04.User user = pListener.getUser();
-        // line of code below breaks app
-        /*printName.setText(user.getName());
-         printEmail.setText(user.getEmail());
-         printID.setText(user.getId());
-        printDept.setText(user.getDepartment()); */
+    public void setProfile(User user) {
+        printName.setText(user.name);
+        printEmail.setText(user.email);
+        printID.setText(user.ID);
+        printDept.setText(user.dept);
     }
 
     @Override

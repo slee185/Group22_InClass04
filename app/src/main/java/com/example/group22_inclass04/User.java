@@ -77,7 +77,11 @@ public class User implements Parcelable {
     }
 
     public void setId(String id) {
-        this.ID = ID;
+        this.ID = id;
+    }
+
+    public User getUser() {
+        return new User(this.name, this.email, this.ID, this.dept);
     }
 
     public String getDepartment() {

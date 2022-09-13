@@ -10,7 +10,7 @@ import android.os.Bundle;
 
 
 public class MainActivity extends AppCompatActivity implements WelcomeFragment.iListener, RegisterFragment.iListener, DepartmentFragment.iListener, ProfileFragment.iListener{
-    User user;
+    User user = new User();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,11 @@ public class MainActivity extends AppCompatActivity implements WelcomeFragment.i
 
     @Override
     public void regSubmitButtonClicked() {
+        ProfileFragment fragment = (ProfileFragment)getSupportFragmentManager().findFragmentByTag("Profile");
+
+        if (fragment != null) {
+            fragment.setProfile(user);
+        }
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.containerView, new ProfileFragment())
@@ -49,11 +54,6 @@ public class MainActivity extends AppCompatActivity implements WelcomeFragment.i
     public void setUser(User user) {
 
     }
-
-//    @Override
-//    public void setUser(User user) {
-//
-//    }
 
     @Override
     public void deptCancelButtonClicked() {

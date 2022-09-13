@@ -27,4 +27,5 @@
     <string name="SISButton">Software Info. Systems</string>
     <string name="bioInfoButton">Bio Informatics</string>
     <string name="dataScienceButton">Data Science</string>
+    <string name="toast_implement_ilistener">\" must implement iListener\"</string>
 </resources>
