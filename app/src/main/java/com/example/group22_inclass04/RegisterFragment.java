@@ -17,16 +17,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class RegisterFragment extends Fragment {
-
     EditText enterName;
     EditText enterEmail;
     EditText enterID;
     TextView textViewSelectedDept;
-
-    final String TAG = "Registration";
-
-    public RegisterFragment() {
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

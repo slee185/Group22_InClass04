@@ -10,7 +10,7 @@ import android.os.Bundle;
 
 
 public class MainActivity extends AppCompatActivity implements WelcomeFragment.iListener, RegisterFragment.iListener, DepartmentFragment.iListener, ProfileFragment.iListener{
-    User user = new User();
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,10 +79,5 @@ public class MainActivity extends AppCompatActivity implements WelcomeFragment.i
         }
         this.user = new User();
         return user.getDepartment();
-    }
-
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-        super.onPointerCaptureChanged(hasCapture);
     }
 }
