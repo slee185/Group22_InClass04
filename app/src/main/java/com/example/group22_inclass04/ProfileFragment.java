@@ -63,6 +63,6 @@ public class ProfileFragment extends Fragment {
     iListener pListener;
 
     public interface iListener{
-        //com.example.groupa2_inclass04.User getUser();
+        //com.example.Group22_InClass04.User getUser();
     }
 }

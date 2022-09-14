@@ -1,5 +1,5 @@
 // In Class Assignment 04
-// GroupA2_InClass04
+// Group22_InClass04
 // Stephanie Lee Karp
 
 package com.example.group22_inclass04;
