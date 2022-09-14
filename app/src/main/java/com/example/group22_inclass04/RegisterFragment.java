@@ -25,7 +25,7 @@ public class RegisterFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -65,14 +65,15 @@ public class RegisterFragment extends Fragment {
     }
 
     @Override
-    public void onAttach(@NonNull Context context){
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
 
-        if (context instanceof iListener){
-            rListener = (iListener)context;
-        } else {
-            throw new RuntimeException(context + " must implement iListener");
+        if (context instanceof iListener) {
+            rListener = (iListener) context;
+            return;
         }
+
+        throw new RuntimeException(context + " must implement iListener");
     }
 
     iListener rListener;

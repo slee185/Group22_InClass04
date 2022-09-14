@@ -61,8 +61,8 @@ public class DepartmentFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        if (context instanceof iListener){
-            dlistener = (iListener)context;
+        if (context instanceof iListener) {
+            dlistener = (iListener) context;
         } else {
             throw new RuntimeException(context + getString(R.string.toast_implement_ilistener));
         }
@@ -72,6 +72,7 @@ public class DepartmentFragment extends Fragment {
 
     public interface iListener {
         void deptCancelButtonClicked();
-        void departmentSelected (String dept);
+
+        void departmentSelected(String dept);
     }
 }
