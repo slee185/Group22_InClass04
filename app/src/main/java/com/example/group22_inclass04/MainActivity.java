@@ -5,12 +5,13 @@
 package com.example.group22_inclass04;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 
 
-public class MainActivity extends AppCompatActivity implements WelcomeFragment.iListener, RegisterFragment.iListener, DepartmentFragment.iListener, ProfileFragment.iListener{
-    User user = new User();
+public class MainActivity extends AppCompatActivity implements WelcomeFragment.iListener, RegisterFragment.iListener, DepartmentFragment.iListener, ProfileFragment.iListener {
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,40 +20,43 @@ public class MainActivity extends AppCompatActivity implements WelcomeFragment.i
 
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.containerView, new WelcomeFragment())
-                .commit();
-    }
-
-    @Override
-    public void setButtonClicked() {
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.containerView, new RegisterFragment())
-                .commit();
-    }
-
-    @Override
-    public void regSelectButtonClicked() {
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.containerView, new DepartmentFragment())
                 .addToBackStack(null)
                 .commit();
     }
 
     @Override
-    public void regSubmitButtonClicked() {
-        ProfileFragment fragment = (ProfileFragment)getSupportFragmentManager().findFragmentByTag("Profile");
+    public void registerButtonClicked() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.containerView, new RegisterFragment(), "register")
+                .addToBackStack(null)
+                .commit();
+    }
+
+    @Override
+    public void selectDepartmentButtonClicked() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.containerView, new DepartmentFragment(), "department")
+                .addToBackStack("department")
+                .commit();
+    }
+
+    @Override
+    public void submitRegistrationButtonClicked() {
+        ProfileFragment fragment = (ProfileFragment) getSupportFragmentManager().findFragmentByTag("profile");
 
         if (fragment != null) {
             fragment.setProfile(user);
         }
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.containerView, new ProfileFragment())
+                .replace(R.id.containerView, new ProfileFragment(), "profile")
+                .addToBackStack(null)
                 .commit();
     }
 
     @Override
     public void setUser(User user) {
-
+        this.user = user;
     }
 
     @Override
@@ -62,27 +66,13 @@ public class MainActivity extends AppCompatActivity implements WelcomeFragment.i
 
     @Override
     public void departmentSelected(String dept) {
-        // line of code below breaks the app
-        /* user.setDepartment(dept);
-         * */
-        getSupportFragmentManager().popBackStack();
-    }
+        RegisterFragment fragment = (RegisterFragment)getSupportFragmentManager().findFragmentByTag("register");
 
-    public User getUser() {
-        return user;
-    }
+        getSupportFragmentManager()
+                .popBackStack("department", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
-    @Override
-    public String getDept() {
-        if (user != null) {
-            return user.getDepartment();
+        if (fragment != null) {
+            fragment.setDepartment(dept);
         }
-        this.user = new User();
-        return user.getDepartment();
-    }
-
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-        super.onPointerCaptureChanged(hasCapture);
     }
 }

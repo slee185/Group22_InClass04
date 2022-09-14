@@ -8,22 +8,23 @@
 
     <Button
         android:id="@+id/selectButton"
-        android:layout_width="121dp"
-        android:layout_height="48dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="@android:color/darker_gray"
         android:text="@string/selectButton"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/deptLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enterID" />
 
     <Button
         android:id="@+id/submitButton"
-        android:layout_width="390dp"
-        android:layout_height="65dp"
-        android:layout_marginBottom="24dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@android:color/darker_gray"
         android:text="@string/submitButton"
         android:textColor="@color/black"
@@ -35,57 +36,50 @@
         android:id="@+id/deptLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
         android:text="@string/deptLabel"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idLabel" />
+        app:layout_constraintBottom_toBottomOf="@+id/textViewSelectedDept"
+        app:layout_constraintEnd_toEndOf="@+id/idLabel"
+        app:layout_constraintTop_toTopOf="@+id/textViewSelectedDept" />
 
     <TextView
         android:id="@+id/nameLabel"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
         android:text="@string/nameLabel"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/enterName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/enterName" />
 
     <TextView
         android:id="@+id/idLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="24dp"
         android:text="@string/idLabel"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/enterID"
         app:layout_constraintEnd_toEndOf="@+id/emailLabel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailLabel" />
+        app:layout_constraintTop_toTopOf="@+id/enterID" />
 
     <TextView
         android:id="@+id/emailLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
         android:text="@string/emailLabel"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/enterEmail"
         app:layout_constraintEnd_toEndOf="@+id/nameLabel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameLabel" />
+        app:layout_constraintTop_toTopOf="@+id/enterEmail" />
 
     <EditText
         android:id="@+id/enterName"
-        android:layout_width="326dp"
-        android:layout_height="48dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="@string/enterName"
         android:inputType="textPersonName"
@@ -95,9 +89,11 @@
 
     <EditText
         android:id="@+id/enterEmail"
-        android:layout_width="326dp"
-        android:layout_height="48dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="@string/enterEmail"
         android:inputType="textPersonName"
@@ -107,9 +103,11 @@
 
     <EditText
         android:id="@+id/enterID"
-        android:layout_width="326dp"
-        android:layout_height="48dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="@string/enterID"
         android:inputType="number"
@@ -119,10 +117,14 @@
 
     <TextView
         android:id="@+id/textViewSelectedDept"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/enterID"
-        app:layout_constraintTop_toTopOf="@+id/deptLabel" />
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/selectButton"
+        app:layout_constraintEnd_toStartOf="@+id/selectButton"
+        app:layout_constraintStart_toEndOf="@+id/deptLabel"
+        app:layout_constraintTop_toTopOf="@+id/selectButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

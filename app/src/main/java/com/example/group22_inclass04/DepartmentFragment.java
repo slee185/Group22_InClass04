@@ -40,20 +40,19 @@ public class DepartmentFragment extends Fragment {
 
         view.findViewById(R.id.deptSelectButton).setOnClickListener(v -> {
             int chooseDept = deptButtons.getCheckedRadioButtonId();
-            String dept;
+            String dept = "";
+
             if (chooseDept == R.id.compSciButton) {
                 dept = "Computer Science";
-                dlistener.departmentSelected(dept);
             } else if (chooseDept == R.id.sisButtons) {
                 dept = "Software Info. System";
-                dlistener.departmentSelected(dept);
             } else if (chooseDept == R.id.bioInfoButton) {
                 dept = "Bio Informatics";
-                dlistener.departmentSelected(dept);
             } else if (chooseDept == R.id.dataScienceButton) {
                 dept = "Data Science";
-                dlistener.departmentSelected(dept);
             }
+
+            dlistener.departmentSelected(dept);
         });
 
         view.findViewById(R.id.cancelButton).setOnClickListener(v -> dlistener.deptCancelButtonClicked());
@@ -62,8 +61,8 @@ public class DepartmentFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        if (context instanceof iListener){
-            dlistener = (iListener)context;
+        if (context instanceof iListener) {
+            dlistener = (iListener) context;
         } else {
             throw new RuntimeException(context + getString(R.string.toast_implement_ilistener));
         }
@@ -73,6 +72,7 @@ public class DepartmentFragment extends Fragment {
 
     public interface iListener {
         void deptCancelButtonClicked();
-        void departmentSelected (String dept);
+
+        void departmentSelected(String dept);
     }
 }

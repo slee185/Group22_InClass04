@@ -8,90 +8,91 @@
 
     <TextView
         android:id="@+id/emailLabel2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
         android:text="@string/emailLabel2"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameLabel2" />
+        app:layout_constraintBottom_toBottomOf="@+id/printEmail"
+        app:layout_constraintEnd_toEndOf="@+id/nameLabel2"
+        app:layout_constraintTop_toTopOf="@+id/printEmail" />
 
     <TextView
         android:id="@+id/idLabel2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
         android:text="@string/idLabel2"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailLabel2" />
+        app:layout_constraintBottom_toBottomOf="@+id/printID"
+        app:layout_constraintEnd_toEndOf="@+id/emailLabel2"
+        app:layout_constraintTop_toTopOf="@+id/printID" />
 
     <TextView
         android:id="@+id/deptLabel2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
         android:text="@string/deptLabel2"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idLabel2" />
+        app:layout_constraintBottom_toBottomOf="@+id/printDept"
+        app:layout_constraintEnd_toEndOf="@+id/idLabel2"
+        app:layout_constraintTop_toTopOf="@+id/printDept" />
 
     <TextView
         android:id="@+id/nameLabel2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
         android:text="@string/nameLabel2"
         android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/printName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/printName" />
 
     <TextView
         android:id="@+id/printName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/printName"
-        app:layout_constraintBottom_toBottomOf="@+id/nameLabel2"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/nameLabel2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/printEmail"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/printEmail"
-        app:layout_constraintBottom_toBottomOf="@+id/emailLabel2"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/emailLabel2"
         app:layout_constraintTop_toBottomOf="@+id/printName" />
 
     <TextView
         android:id="@+id/printID"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/printID"
-        app:layout_constraintBottom_toBottomOf="@+id/idLabel2"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/idLabel2"
         app:layout_constraintTop_toBottomOf="@+id/printEmail" />
 
     <TextView
         android:id="@+id/printDept"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/printDept"
-        app:layout_constraintBottom_toBottomOf="@id/deptLabel2"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/deptLabel2"
         app:layout_constraintTop_toBottomOf="@id/printID" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
