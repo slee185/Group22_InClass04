@@ -1,3 +1,6 @@
+// In Class Assignment 04
+// Group22_InClass04
+// Stephanie Lee Karp & Ken Stanley
 package com.example.group22_inclass04;
 
 import android.content.Context;
@@ -63,6 +66,6 @@ public class ProfileFragment extends Fragment {
     iListener pListener;
 
     public interface iListener{
-        //com.example.groupa2_inclass04.User getUser();
+        //com.example.Group22_InClass04.User getUser();
     }
 }
