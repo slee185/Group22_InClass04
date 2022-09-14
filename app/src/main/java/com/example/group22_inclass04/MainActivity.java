@@ -1,6 +1,6 @@
 // In Class Assignment 04
 // Group22_InClass04
-// Stephanie Lee Karp
+// Stephanie Lee Karp & Ken Stanley
 
 package com.example.group22_inclass04;
 
