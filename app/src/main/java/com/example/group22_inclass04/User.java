@@ -7,20 +7,16 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class User implements Parcelable {
-    String name;
-    String email;
-    String ID;
-    String dept;
+    public final String name;
+    public final String email;
+    public final String ID;
+    public final String dept;
 
     public User(String name, String email, String ID, String dept) {
         this.name = name;
         this.email = email;
         this.ID = ID;
         this.dept = dept;
-    }
-
-    public User() {
-
     }
 
     protected User(Parcel in) {
@@ -53,41 +49,5 @@ public class User implements Parcelable {
         dest.writeString(email);
         dest.writeString(ID);
         dest.writeString(dept);
-    }
-
-    public void setDepartment(String department){
-        this.dept = department;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getId() {
-        return ID;
-    }
-
-    public void setId(String id) {
-        this.ID = id;
-    }
-
-    public User getUser() {
-        return new User(this.name, this.email, this.ID, this.dept);
-    }
-
-    public String getDepartment() {
-        return dept;
     }
 }
