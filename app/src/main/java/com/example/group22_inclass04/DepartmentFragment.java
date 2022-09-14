@@ -19,7 +19,6 @@ public class DepartmentFragment extends Fragment {
     RadioGroup deptButtons;
 
     public DepartmentFragment() {
-        // Required empty public constructor
     }
 
     @Override

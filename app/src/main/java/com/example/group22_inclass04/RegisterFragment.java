@@ -53,14 +53,11 @@ public class RegisterFragment extends Fragment {
             Editable idText = enterIdView.getText();
 
             if (nameText.length() > 0 && emailText.length() > 0 && idText.length() > 0 && departmentView.length() > 0) {
-                rListener.setUser(new User(
-                        enterNameView.getText().toString(),
-                        enterEmailView.getText().toString(),
-                        enterIdView.getText().toString(),
-                        departmentView.getText().toString()
-                ));
-
-                rListener.submitRegistrationButtonClicked();
+                User user = new User(enterNameView.getText().toString(),
+                                    enterEmailView.getText().toString(),
+                                    enterIdView.getText().toString(),
+                                    departmentView.getText().toString());
+                rListener.submitRegistrationButtonClicked(user);
                 return;
             }
 
@@ -74,10 +71,9 @@ public class RegisterFragment extends Fragment {
 
         if (context instanceof iListener) {
             rListener = (iListener) context;
-            return;
+        } else {
+            throw new RuntimeException(context + " must implement iListener");
         }
-
-        throw new RuntimeException(context + " must implement iListener");
     }
 
     @Override
@@ -105,11 +101,6 @@ public class RegisterFragment extends Fragment {
          * Triggers submitting the registration; i.e., creating the User object, passing it back
          * to the main activity, and then changing to the ProfileFragment.
          */
-        void submitRegistrationButtonClicked();
-
-        /**
-         * Passes the User object back to the MainActivity.
-         */
-        void setUser(User user);
+        void submitRegistrationButtonClicked(User user);
     }
 }

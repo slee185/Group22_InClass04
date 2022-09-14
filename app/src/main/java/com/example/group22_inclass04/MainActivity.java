@@ -41,22 +41,17 @@ public class MainActivity extends AppCompatActivity implements WelcomeFragment.i
     }
 
     @Override
-    public void submitRegistrationButtonClicked() {
-        ProfileFragment fragment = (ProfileFragment) getSupportFragmentManager().findFragmentByTag("profile");
-
-        if (fragment != null) {
-            fragment.setProfile(user);
-        }
+    public void submitRegistrationButtonClicked(User user) {
+        ProfileFragment fragment = (ProfileFragment)getSupportFragmentManager().findFragmentByTag("profile");
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.containerView, new ProfileFragment(), "profile")
                 .addToBackStack(null)
                 .commit();
-    }
 
-    @Override
-    public void setUser(User user) {
-        this.user = user;
+        if (fragment != null) {
+            fragment.setProfile(user);
+        }
     }
 
     @Override
@@ -75,4 +70,6 @@ public class MainActivity extends AppCompatActivity implements WelcomeFragment.i
             fragment.setDepartment(dept);
         }
     }
+
+
 }

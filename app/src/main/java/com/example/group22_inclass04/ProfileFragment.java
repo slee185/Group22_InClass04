@@ -23,27 +23,28 @@ public class ProfileFragment extends Fragment {
     TextView printID;
     TextView printDept;
 
-    final String TAG = "Profile";
-
-
+    User user;
     public ProfileFragment() {
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_profile, container, false);
-
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        printName = view.findViewById(R.id.printName);
+        printEmail = view.findViewById(R.id.printEmail);
+        printID = view.findViewById(R.id.printID);
+        printDept = view.findViewById(R.id.printDept);
     }
 
     public void setProfile(User user) {
@@ -66,6 +67,6 @@ public class ProfileFragment extends Fragment {
     iListener pListener;
 
     public interface iListener{
-        //com.example.Group22_InClass04.User getUser();
+
     }
 }
