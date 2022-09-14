@@ -24,6 +24,7 @@ public class ProfileFragment extends Fragment {
     TextView printDept;
 
     User user;
+
     public ProfileFragment() {
     }
 

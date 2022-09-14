@@ -25,6 +25,10 @@ public class RegisterFragment extends Fragment {
 
     String selectedDepartment;
 
+    public RegisterFragment() {
+
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
