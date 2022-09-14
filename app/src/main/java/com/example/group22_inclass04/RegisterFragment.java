@@ -17,10 +17,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class RegisterFragment extends Fragment {
-    EditText enterName;
-    EditText enterEmail;
-    EditText enterID;
-    TextView textViewSelectedDept;
+    EditText enterNameView;
+    EditText enterEmailView;
+    EditText enterIdView;
+    TextView departmentView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,22 +36,31 @@ public class RegisterFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        enterName = view.findViewById(R.id.enterName);
-        enterEmail = view.findViewById(R.id.enterEmail);
-        enterID = view.findViewById(R.id.enterID);
-        textViewSelectedDept = view.findViewById(R.id.textViewSelectedDept);
+        enterNameView = view.findViewById(R.id.enterName);
+        enterEmailView = view.findViewById(R.id.enterEmail);
+        enterIdView = view.findViewById(R.id.enterID);
+        departmentView = view.findViewById(R.id.textViewSelectedDept);
 
         view.findViewById(R.id.selectButton).setOnClickListener(v -> rListener.regSelectButtonClicked());
 
+        // Validate that the required fields are filled in and if not, display a toast.
         view.findViewById(R.id.submitButton).setOnClickListener(v -> {
-            rListener.regSelectButtonClicked();
-            if (enterName == null || enterEmail == null || enterID == null) {
-                Toast.makeText(getActivity(), "Enter a name, email and ID!", Toast.LENGTH_SHORT).show();
-            } else {
-                User user = new User (enterName.getText().toString(), enterEmail.getText().toString(), enterID.getText().toString(), rListener.getDept());
-                rListener.setUser(user);
+            Editable nameText = enterNameView.getText();
+            Editable emailText = enterEmailView.getText();
+            Editable idText = enterIdView.getText();
+
+            if (nameText.length() > 0 && emailText.length() > 0 && idText.length() > 0 && departmentView.length() > 0) {
+                rListener.setUser(new User(
+                        enterNameView.getText().toString(),
+                        enterEmailView.getText().toString(),
+                        enterIdView.getText().toString(),
+                        departmentView.getText().toString()
+                ));
+
+                rListener.submitRegistrationButtonClicked();
             }
-            rListener.regSubmitButtonClicked();
+
+            Toast.makeText(getActivity(), "You must enter a name, email, id and select a department to continue.", Toast.LENGTH_SHORT).show();
         });
     }
 
