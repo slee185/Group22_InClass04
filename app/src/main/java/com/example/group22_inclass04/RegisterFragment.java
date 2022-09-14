@@ -5,6 +5,7 @@ package com.example.group22_inclass04;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +42,7 @@ public class RegisterFragment extends Fragment {
         enterIdView = view.findViewById(R.id.enterID);
         departmentView = view.findViewById(R.id.textViewSelectedDept);
 
-        view.findViewById(R.id.selectButton).setOnClickListener(v -> rListener.regSelectButtonClicked());
+        view.findViewById(R.id.selectButton).setOnClickListener(v -> rListener.selectDepartmentButtonClicked());
 
         // Validate that the required fields are filled in and if not, display a toast.
         view.findViewById(R.id.submitButton).setOnClickListener(v -> {
@@ -65,7 +66,8 @@ public class RegisterFragment extends Fragment {
         });
     }
 
-    @Override    public void onAttach(@NonNull Context context) {
+    @Override
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
 
         if (context instanceof iListener) {
@@ -76,12 +78,27 @@ public class RegisterFragment extends Fragment {
         throw new RuntimeException(context + " must implement iListener");
     }
 
+    public void setDepartment(String department) {
+        departmentView.setText(department);
+    }
+
     iListener rListener;
 
     public interface iListener {
-        void regSelectButtonClicked();
-        void regSubmitButtonClicked();
+        /**
+         * Triggers changing the fragment to the DepartmentFragment.
+         */
+        void selectDepartmentButtonClicked();
+
+        /**
+         * Triggers submitting the registration; i.e., creating the User object, passing it back
+         * to the main activity, and then changing to the ProfileFragment.
+         */
+        void submitRegistrationButtonClicked();
+
+        /**
+         * Passes the User object back to the MainActivity.
+         */
         void setUser(User user);
-        String getDept();
     }
 }
