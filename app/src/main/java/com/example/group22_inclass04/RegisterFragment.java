@@ -23,6 +23,8 @@ public class RegisterFragment extends Fragment {
     EditText enterIdView;
     TextView departmentView;
 
+    String selectedDepartment;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,8 +80,17 @@ public class RegisterFragment extends Fragment {
         throw new RuntimeException(context + " must implement iListener");
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if (selectedDepartment != null) {
+            departmentView.setText(selectedDepartment);
+        }
+    }
+
     public void setDepartment(String department) {
-        departmentView.setText(department);
+        selectedDepartment = department;
     }
 
     iListener rListener;
