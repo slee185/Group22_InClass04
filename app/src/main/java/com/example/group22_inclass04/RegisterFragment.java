@@ -58,14 +58,14 @@ public class RegisterFragment extends Fragment {
                 ));
 
                 rListener.submitRegistrationButtonClicked();
+                return;
             }
 
             Toast.makeText(getActivity(), "You must enter a name, email, id and select a department to continue.", Toast.LENGTH_SHORT).show();
         });
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
+    @Override    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
 
         if (context instanceof iListener) {
