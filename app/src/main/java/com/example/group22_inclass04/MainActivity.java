@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements WelcomeFragment.i
     }
 
     @Override
-    public void setButtonClicked() {
+    public void registerButtonClicked() {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.containerView, new RegisterFragment())
                 .commit();

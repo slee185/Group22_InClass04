@@ -32,7 +32,7 @@ public class WelcomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.registerButton).setOnClickListener(v -> mListener.setButtonClicked());
+        view.findViewById(R.id.registerButton).setOnClickListener(v -> mListener.registerButtonClicked());
     }
 
     @Override
@@ -49,6 +49,6 @@ public class WelcomeFragment extends Fragment {
     iListener mListener;
 
     public interface iListener {
-        void setButtonClicked();
+        void registerButtonClicked();
     }
 }
