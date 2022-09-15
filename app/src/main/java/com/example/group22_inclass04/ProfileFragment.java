@@ -3,7 +3,6 @@
 // Stephanie Lee Karp & Ken Stanley
 package com.example.group22_inclass04;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,10 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import org.w3c.dom.Text;
-
 public class ProfileFragment extends Fragment {
-
     TextView printName;
     TextView printEmail;
     TextView printID;
@@ -25,12 +21,8 @@ public class ProfileFragment extends Fragment {
 
     User user;
 
-    public ProfileFragment() {
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public ProfileFragment(User user) {
+        this.user = user;
     }
 
     @Override
@@ -46,6 +38,8 @@ public class ProfileFragment extends Fragment {
         printEmail = view.findViewById(R.id.printEmail);
         printID = view.findViewById(R.id.printID);
         printDept = view.findViewById(R.id.printDept);
+
+        setProfile(user);
     }
 
     public void setProfile(User user) {
@@ -53,21 +47,5 @@ public class ProfileFragment extends Fragment {
         printEmail.setText(user.email);
         printID.setText(user.ID);
         printDept.setText(user.dept);
-    }
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        if (context instanceof iListener){
-            pListener = (iListener)context;
-        } else {
-            throw new RuntimeException(context + " must implement iListener");
-        }
-    }
-
-    iListener pListener;
-
-    public interface iListener{
-
     }
 }
