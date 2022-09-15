@@ -1,7 +1,6 @@
 // In Class Assignment 04
 // Group22_InClass04
 // Stephanie Lee Karp & Ken Stanley
-
 package com.example.group22_inclass04;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,10 +8,7 @@ import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 
-
-public class MainActivity extends AppCompatActivity implements WelcomeFragment.iListener, RegisterFragment.iListener, DepartmentFragment.iListener, ProfileFragment.iListener {
-    User user;
-
+public class MainActivity extends AppCompatActivity implements WelcomeFragment.iListener, RegisterFragment.iListener, DepartmentFragment.iListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,16 +38,10 @@ public class MainActivity extends AppCompatActivity implements WelcomeFragment.i
 
     @Override
     public void submitRegistrationButtonClicked(User user) {
-        ProfileFragment fragment = (ProfileFragment)getSupportFragmentManager().findFragmentByTag("profile");
-
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.containerView, new ProfileFragment(), "profile")
                 .addToBackStack(null)
                 .commit();
-
-        if (fragment != null) {
-            fragment.setProfile(user);
-        }
     }
 
     @Override
