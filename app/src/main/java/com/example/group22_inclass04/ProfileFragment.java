@@ -21,10 +21,15 @@ public class ProfileFragment extends Fragment {
 
     User user;
 
+    public ProfileFragment(User user) {
+        this.user = user;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_profile, container, false);
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -33,6 +38,8 @@ public class ProfileFragment extends Fragment {
         printEmail = view.findViewById(R.id.printEmail);
         printID = view.findViewById(R.id.printID);
         printDept = view.findViewById(R.id.printDept);
+
+        setProfile(user);
     }
 
     public void setProfile(User user) {

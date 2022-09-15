@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements WelcomeFragment.i
     @Override
     public void submitRegistrationButtonClicked(User user) {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.containerView, new ProfileFragment(), "profile")
+                .replace(R.id.containerView, new ProfileFragment(user), "profile")
                 .addToBackStack(null)
                 .commit();
     }
